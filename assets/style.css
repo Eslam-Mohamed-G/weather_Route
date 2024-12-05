@@ -84,7 +84,7 @@
 
 /************ main ************/
 main{
-    background: linear-gradient(#ddd 60%, red 40%);
+    background: linear-gradient(#ddd 60%, var(--main-color) 40%);
 }
 
 .hero .container .find-location{
