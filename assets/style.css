@@ -1,5 +1,5 @@
 :root{
-    --main-color: rgb(48, 48, 56);
+    --main-color: rgb(30, 32, 43);
     --second-color: rgb(50, 53, 68);
     --hover-color: rgb(22, 163, 219);
     --text-color: rgb(255, 255, 255);
@@ -82,6 +82,78 @@
 
 /* <!-- responsive menu --> */
 
+/************ main ************/
+/* main{
+    border: 1px solid red;
+} */
+
+.hero .container .find-location{
+    width: 100%;
+    position: relative;
+}
+#search{
+    background-color: var(--main-color);
+    color: var(--second-text-color);
+    outline: none;
+    border: none;
+    width: 100%;
+}
+#submit{
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* table to show data from api */
+.forecast-table{
+    border: 1px solid blue;
+    background-color: var(--main-color);
+}
+
+
+/* footer */
+.site-footer{
+    background-color: var(--second-color);
+}
+
+.subscribe-form{
+    position: relative;
+}
+.subscribe-form input{
+    background-color: var(--main-color);
+    color: var(--second-text-color);
+    outline: none;
+    border: none;
+    width: 100%;
+}
+.subscribe-form button{
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.colophon{
+    margin-top: 25px;
+    color: var(--text-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 996px) {
     .site-header{
         padding: 40px 0px 0px;
@@ -114,5 +186,10 @@
     }
     .main-navigation .menu .menu-item:last-child{
         border-bottom: none;
+    }
+
+
+    .forecast-table .row{
+        flex-direction: column;
     }
 }

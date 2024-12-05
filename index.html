@@ -47,12 +47,12 @@
 
     <main>
         <div class="site-content">
-            <div class="hero" data-bg-image="images/banner.png"
+            <div class="hero pt-5" data-bg-image="images/banner.png"
                 style="background-image: url(&quot;images/banner.png&quot;);">
                 <div class="container">
-                    <form class="find-location">
-                        <input type="text" placeholder="Find your location..." id="search">
-                        <input type="button" value="Find" id="submit">
+                    <form class="find-location my-5">
+                        <input type="text" placeholder="Find your location..." id="search" class="rounded-5 py-3 px-4">
+                        <button type="button" id="submit" class="rounded-5 px-4 py-2 border-0">Find</button>
                     </form>
     
                 </div>
@@ -60,67 +60,84 @@
 
             <div class="forecast-table">
                 <div class="container">
-                    <div class="forecast-container" id="forecast">
-                        <div class="today forecast">
-                            <div class="forecast-header" id="today">
-                                <div class="day">Thursday</div>
-                                <div class=" date">5December</div>
-                            </div> <!-- .forecast-header -->
-                            <div class="forecast-content" id="current">
-                                <div class="location">Cairo</div>
-                                <div class="degree">
-                                    <div class="num">21.2<sup>o</sup>C</div>
-    
-                                    <div class="forecast-icon">
-                                        <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="90">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="today forecast">
+                                <header class="forecast-header d-flex justify-content-between" id="today">
+                                    <div class="day">Thursday</div>
+                                    <div class=" date">5December</div>
+                                </header> <!-- .forecast-header -->
+                                <div class="forecast-content" id="current">
+                                    <div class="location">Cairo</div>
+                                    <div class="degree">
+                                        <div class="num">21.2<sup>o</sup>C</div>
+        
+                                        <div class="forecast-icon">
+                                            <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="90">
+                                        </div>
+        
                                     </div>
-    
+                                    <div class="custom">Partly cloudy</div>
                                 </div>
-                                <div class="custom">Partly cloudy</div>
-                                <span><img src="images/icon-umberella.png" alt="">20%</span>
-                                <span><img src="images/icon-wind.png" alt="">18km/h</span>
-                                <span><img src="images/icon-compass.png" alt="">East</span>
+                                <footer>
+                                    <span><img src="images/icon-umberella.png" alt="">20%</span>
+                                    <span><img src="images/icon-wind.png" alt="">18km/h</span>
+                                    <span><img src="images/icon-compass.png" alt="">East</span>
+                                </footer>
                             </div>
                         </div>
-                        <div class="forecast">
-                            <div class="forecast-header">
-                                <div class="day">Friday</div>
-                            </div> <!-- .forecast-header -->
-                            <div class="forecast-content">
-                                <div class="forecast-icon">
-                                    <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="48">
+
+                        <div class="col-md-4">
+                            <div class="forecast">
+                                <header class="forecast-header">
+                                    <div class="day">Friday</div>
+                                </header> <!-- .forecast-header -->
+                                <div class="forecast-content">
+                                    <div class="forecast-icon">
+                                        <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="48">
+                                    </div>
+                                    <div class="degree">22.6<sup>o</sup>C</div>
+                                    <small>14.8<sup>o</sup></small>
+                                    <div class="custom">Partly Cloudy </div>
                                 </div>
-                                <div class="degree">22.6<sup>o</sup>C</div>
-                                <small>14.8<sup>o</sup></small>
-                                <div class="custom">Partly Cloudy </div>
                             </div>
                         </div>
-                        <div class="forecast">
-                            <div class="forecast-header">
-                                <div class="day">Saturday</div>
-                            </div> <!-- .forecast-header -->
-                            <div class="forecast-content">
-                                <div class="forecast-icon">
-                                    <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="48">
+
+                        <div class="col-md-4">
+                            <div class="forecast">
+                                <div class="forecast-header">
+                                    <div class="day">Saturday</div>
+                                </div> <!-- .forecast-header -->
+                                <div class="forecast-content">
+                                    <div class="forecast-icon">
+                                        <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="48">
+                                    </div>
+                                    <div class="degree">22.9<sup>o</sup>C</div>
+                                    <small>16.1<sup>o</sup></small>
+                                    <div class="custom">Partly Cloudy </div>
                                 </div>
-                                <div class="degree">22.9<sup>o</sup>C</div>
-                                <small>16.1<sup>o</sup></small>
-                                <div class="custom">Partly Cloudy </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- <div class="container">
+                    <div class="forecast-container" id="forecast">
+                        
+                        
+                        
+                    </div>
+                </div> -->
             </div>
         </div>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <form action="#" class="subscribe-form">
-                        <input type="text" placeholder="Enter your email to subscribe...">
-                        <input type="submit" value="Subscribe">
+                        <input type="text" placeholder="Enter your email to subscribe..." class="rounded-5 py-3 px-4">
+                        <button type="button" class="rounded-5 px-4 py-2 border-0">Subscribe</button>
                     </form>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
@@ -135,7 +152,7 @@
 
             <p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
         </div>
-    </footer> <!-- .site-footer -->
+    </footer>
     <script src="./assets/script.js"></script>
 </body>
 
