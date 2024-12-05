@@ -20,6 +20,10 @@
     flex-direction: row;
     padding: 40px 0;
 }
+.navbar-colum{
+    display: flex;
+    flex-direction: row;
+}
 
 .container .branding{
     color: var(--text-color);
@@ -80,9 +84,11 @@
 
 @media screen and (max-width: 996px) {
     .site-header{
+        padding: 40px 0px 0px;
+    }
+    .site-header .navbar-colum{
         flex-direction: column;
         gap: 35px;
-        padding: 40px 0 0;
     }
     .menu-toggle{
         display: block;
