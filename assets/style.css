@@ -89,13 +89,17 @@
     }
     .main-navigation .menu{
         display: none;
-        height: 0px;
-        /* height: 278px; */
+        max-height: 0px;
         overflow: hidden;
         flex-direction: column;
         text-align: center;
         background-color: var(--second-color);
         border-radius: 15px;
+        transition: all ease-in-out .3s;
+    }
+    /* to add it from js */
+    .main-navigation .menu.open {
+        max-height: 278px;
     }
 
     .main-navigation .menu .menu-item{
