@@ -1,0 +1,76 @@
+:root{
+    --main-color: rgb(59, 59, 68);
+    --second-color: rgb(50, 53, 68);
+    --hover-color: rgb(22, 163, 219);
+    --text-color: rgb(255, 255, 255);
+    --second-text-color: rgb(191, 193, 200);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*************** header ***************/
+
+.site-header{
+    background-color: var(--second-color);
+}
+
+.container .branding{
+    color: var(--text-color);
+    gap: 15px;
+}
+
+.branding .logo-type h1{
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+}
+.branding .logo-type .site-description{
+    font-size: 10px;
+    color: var(--second-text-color);
+}
+
+/* <!-- responsive menu --> */
+.main-navigation .menu-toggle{
+    display: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all ease-in-out .3s;
+}
+
+.main-navigation .menu-toggle:hover{
+    color: var(--hover-color);
+    border: 1px solid var(--hover-color);
+}
+
+
+.menu .menu-item a{
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    padding: 0px 25px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all ease-in-out .3s;
+}
+
+.menu .menu-item a:hover{
+    color: var(--hover-color);
+    border: 2px solid var(--hover-color);
+}
+
+/* .current-menu-item{
+    color: var(--hover-color);
+    border: 2px solid var(--hover-color);
+    border-radius: 25px;
+} */
+
+/* <!-- responsive menu --> */
