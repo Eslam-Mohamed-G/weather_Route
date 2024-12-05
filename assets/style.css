@@ -1,5 +1,5 @@
 :root{
-    --main-color: rgb(59, 59, 68);
+    --main-color: rgb(48, 48, 56);
     --second-color: rgb(50, 53, 68);
     --hover-color: rgb(22, 163, 219);
     --text-color: rgb(255, 255, 255);
@@ -15,7 +15,10 @@
 /*************** header ***************/
 
 .site-header{
-    background-color: var(--second-color);
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: row;
+    padding: 40px 0;
 }
 
 .container .branding{
@@ -34,7 +37,7 @@
 }
 
 /* <!-- responsive menu --> */
-.main-navigation .menu-toggle{
+.menu-toggle{
     display: none;
     background-color: transparent;
     border: 1px solid transparent;
@@ -45,7 +48,7 @@
     transition: all ease-in-out .3s;
 }
 
-.main-navigation .menu-toggle:hover{
+.menu-toggle:hover{
     color: var(--hover-color);
     border: 1px solid var(--hover-color);
 }
@@ -74,3 +77,32 @@
 } */
 
 /* <!-- responsive menu --> */
+
+@media screen and (max-width: 996px) {
+    .site-header{
+        flex-direction: column;
+        gap: 35px;
+        padding: 40px 0 0;
+    }
+    .menu-toggle{
+        display: block;
+    }
+    .main-navigation .menu{
+        display: none;
+        height: 0px;
+        /* height: 278px; */
+        overflow: hidden;
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--second-color);
+        border-radius: 15px;
+    }
+
+    .main-navigation .menu .menu-item{
+        border-bottom: 1px solid var(--second-text-color);
+        padding: 15px 0;
+    }
+    .main-navigation .menu .menu-item:last-child{
+        border-bottom: none;
+    }
+}
