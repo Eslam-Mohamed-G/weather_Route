@@ -54,5 +54,27 @@ submitbtn.addEventListener("click", async function () {
         console.error(error);
     }
 
-    console.log(weatherData);
+    // console.log(weatherData);
+    var location = weatherData.location;
+    console.log(location);
+    // current data for first div.condition.wind_kph.wind_dir
+    var current = weatherData.current;
+    console.log(current);
+    
+    // forecast data for two and three div
+    var forecast = weatherData.forecast.forecastday;
+    console.log(forecast);
+
+
 })
+
+function formatDate(dateString) {
+    var date = new Date(dateString);
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var dayName = days[date.getDate()];
+    var month = months[date.getDate()];
+
+    return {dayName, month}
+}
