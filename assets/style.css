@@ -84,7 +84,11 @@
 
 /************ main ************/
 main{
-    background: linear-gradient(#ddd 60%, var(--main-color) 40%);
+    background-image: url(../assets/image/weather.jpg);
+    background-position: 0px -400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--main-color);
 }
 
 .hero .container .find-location{
@@ -231,10 +235,20 @@ main{
         border-bottom: none;
     }
 
+    main{
+        background-image: url(../assets/image/weather.jpg);
+        background-position: 0px -200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: var(--main-color);
+    }
+
 
     .forecast-table .row{
         flex-direction: column;
     }
+
+
     .social-links{
         margin-top: 20px;
         text-align: center;
