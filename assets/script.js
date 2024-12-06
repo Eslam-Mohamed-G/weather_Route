@@ -65,7 +65,40 @@ submitbtn.addEventListener("click", async function () {
     var forecast = weatherData.forecast.forecastday;
     console.log(forecast);
 
+    var forecastRow = document.getElementById("forecast");
+    forecastRow.innerHTML = "";
 
+    var today = document.createElement("div");
+    today.classList.add("col-md-4", "p-0");
+    today.innerHTML = 
+    `
+    <div class="today forecast">
+        <div class="forecast-header d-flex justify-content-between">
+            <div class="day"></div>
+            <div class=" date"></div>
+        </div> 
+
+        <div class="forecast-content">
+            <div class="location">Cairo</div>
+            <div class="degree">
+                <div class="num">21.2<sup>o</sup>C</div>
+        
+                <div class="forecast-icon">
+                    <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="90">
+                </div>
+        
+            </div>
+            <div class="custom">Partly cloudy</div>
+        </div>
+
+        <footer>
+            <span><img src="images/icon-umberella.png" alt="">20%</span>
+            <span><img src="images/icon-wind.png" alt="">18km/h</span>
+            <span><img src="images/icon-compass.png" alt="">East</span>
+        </footer>
+    </div>
+    `
+    forecastRow.appendChild(today);
 })
 
 function formatDate(dateString) {
