@@ -55,15 +55,17 @@ submitbtn.addEventListener("click", async function () {
     }
 
     // console.log(weatherData);
-    var location = weatherData.location;
-    console.log(location);
+    // var location = weatherData.location;
+    var citName = weatherData.location.name;
+    console.log(citName);
     // current data for first div.condition.wind_kph.wind_dir
     var current = weatherData.current;
     console.log(current);
     
     // forecast data for two and three div
     var forecast = weatherData.forecast.forecastday;
-    console.log(forecast);
+    var nameDayAndMonth = formatDate(weatherData.forecast.forecastday[0].date)
+    console.log(nameDayAndMonth);
 
     var forecastRow = document.getElementById("forecast");
     forecastRow.innerHTML = "";
@@ -74,12 +76,12 @@ submitbtn.addEventListener("click", async function () {
     `
     <div class="today forecast">
         <div class="forecast-header d-flex justify-content-between">
-            <div class="day"></div>
-            <div class=" date"></div>
+            <div class="day">${nameDayAndMonth[0]}</div>
+            <div class=" date">${nameDayAndMonth[1]}${nameDayAndMonth[2]} ${nameDayAndMonth[3]}</div>
         </div> 
 
         <div class="forecast-content">
-            <div class="location">Cairo</div>
+            <div class="location">${citName}</div>
             <div class="degree">
                 <div class="num">21.2<sup>o</sup>C</div>
         
@@ -107,7 +109,19 @@ function formatDate(dateString) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     var dayName = days[date.getDate()];
+    var day = date.getDate();
     var month = months[date.getDate()];
 
-    return {dayName, month}
+    let ordinal;
+    if (day % 10 === 1 && day !== 11) {
+        ordinal = "st";
+    } else if (day % 10 === 2 && day !== 12) {
+        ordinal = "nd";
+    } else if (day % 10 === 3 && day !== 13) {
+        ordinal = "rd";
+    } else {
+        ordinal = "th";
+    }
+
+    return [dayName, day, ordinal, month]
 }
