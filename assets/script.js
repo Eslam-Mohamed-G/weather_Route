@@ -35,3 +35,20 @@ var submitbtn = document.getElementById("submit");
 //     console.log(weatherData)
 // })
 
+let weatherData;
+submitbtn.addEventListener("click", async function () {
+    var city = search.value;
+    if (!search.value) {
+        city = "Mansoura"
+    } else {
+        city = search.value;
+    }
+    var response = await fetch(`${url}?key=${keyAPI}&q=${city}&days=3&aqi=no&alerts=no`);
+    if(!response.ok){
+        throw new Error("City not found");
+    }
+
+    weatherData = await response.json()
+
+    console.log(weatherData);
+})
