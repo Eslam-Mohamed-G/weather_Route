@@ -56,17 +56,24 @@ submitbtn.addEventListener("click", async function () {
 
     // console.log(weatherData);
     // var location = weatherData.location;
+    // console.log(location);
     var citName = weatherData.location.name;
     console.log(citName);
-    // current data for first div.condition.wind_kph.wind_dir
+    // start current data for first div last_updated
     var current = weatherData.current;
-    console.log(current);
-    
-    // forecast data for two and three div
-    var forecast = weatherData.forecast.forecastday;
-    var nameDayAndMonth = formatDate(weatherData.forecast.forecastday[0].date)
-    console.log(nameDayAndMonth);
+    var currentDayAndMonth = formatDate(current.last_updated);
+    var currentTemp = current.temp_c;
+    var currentCondition = current.condition.text;
+    var conditionIcon = current.condition.icon;
+    var windSpeed = current.wind_kph;
+    var windDirction = current.wind_dir;
 
+    var iconUrl = conditionIcon.startsWith("//")
+    ? `https:${conditionIcon}`
+    : conditionIcon;
+    console.log(current);
+    // current data for first div
+    
     var forecastRow = document.getElementById("forecast");
     forecastRow.innerHTML = "";
 
@@ -76,31 +83,42 @@ submitbtn.addEventListener("click", async function () {
     `
     <div class="today forecast">
         <div class="forecast-header d-flex justify-content-between">
-            <div class="day">${nameDayAndMonth[0]}</div>
-            <div class=" date">${nameDayAndMonth[1]}${nameDayAndMonth[2]} ${nameDayAndMonth[3]}</div>
+            <div class="day">${currentDayAndMonth[0]}</div>
+            <div class=" date">${currentDayAndMonth[1]}${currentDayAndMonth[2]} ${currentDayAndMonth[3]}</div>
         </div> 
 
         <div class="forecast-content">
             <div class="location">${citName}</div>
             <div class="degree">
-                <div class="num">21.2<sup>o</sup>C</div>
+                <div class="num">${currentTemp}°C</div>
         
                 <div class="forecast-icon">
-                    <img src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="" width="90">
+                    <img src="${iconUrl}" alt="conditionIcon" width="90">
                 </div>
         
             </div>
-            <div class="custom">Partly cloudy</div>
+            <div class="custom">${currentCondition}</div>
         </div>
 
         <footer>
-            <span><img src="images/icon-umberella.png" alt="">20%</span>
-            <span><img src="images/icon-wind.png" alt="">18km/h</span>
-            <span><img src="images/icon-compass.png" alt="">East</span>
+            <span><i class="fa-solid fa-umbrella"></i>20%</span>
+            <span><i class="fa-solid fa-wind"></i>${windSpeed}km/h</span>
+            <span><i class="fa-solid fa-compass"></i>${windDirction}</span>
         </footer>
     </div>
     `
+    // end current data for first div
+
     forecastRow.appendChild(today);
+    
+    // forecast data for two and three div
+    var forecast = weatherData.forecast.forecastday[0];
+    var nameDayAndMonth = formatDate(forecast.date);
+    var avgtemp = forecast.day.avgtemp_c;
+    var condition = forecast.day.condition.text;
+    
+    console.log(forecast);
+    // console.log(condition);
 })
 
 function formatDate(dateString) {
@@ -108,9 +126,9 @@ function formatDate(dateString) {
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    var dayName = days[date.getDate()];
+    var dayName = days[date.getDay()];
     var day = date.getDate();
-    var month = months[date.getDate()];
+    var month = months[date.getMonth()];
 
     let ordinal;
     if (day % 10 === 1 && day !== 11) {
