@@ -59,7 +59,7 @@ submitbtn.addEventListener("click", async function () {
     // console.log(location);
     var citName = weatherData.location.name;
     console.log(citName);
-    // start current data for first div last_updated
+    //! start current data for first div
     var current = weatherData.current;
     var currentDayAndMonth = formatDate(current.last_updated);
     var currentTemp = current.temp_c;
@@ -107,18 +107,53 @@ submitbtn.addEventListener("click", async function () {
         </footer>
     </div>
     `
-    // end current data for first div
+    //! end current data for first div
 
     forecastRow.appendChild(today);
     
-    // forecast data for two and three div
-    var forecast = weatherData.forecast.forecastday[0];
-    var nameDayAndMonth = formatDate(forecast.date);
-    var avgtemp = forecast.day.avgtemp_c;
-    var condition = forecast.day.condition.text;
-    
-    console.log(forecast);
-    // console.log(condition);
+    //! start forecast data for two and three div
+    var forecastData = weatherData.forecast.forecastday; 
+    for (i = 1; i < forecastData.length; i++) {
+        var nameDayAndMonth = formatDate(forecastData[i].date);
+        var maxtemp = forecastData[i].day.maxtemp_c;
+        var mintemp = forecastData[i].day.mintemp_c;
+        var condition = forecastData[i].day.condition.text;
+        var forecastIcon = forecastData[i].day.condition.icon;
+        console.log(nameDayAndMonth[0]);
+
+        var forecastIconUrl = forecastIcon.startsWith("//")
+            ? `https:${forecastIcon}`
+            : forecastIcon;
+
+        var forecastDay = document.createElement("div");
+        forecastDay.classList.add("col-md-4", "p-0");
+        forecastDay.innerHTML =
+            `
+            <div class="today forecast">
+                <div class="forecast-header d-flex justify-content-between">
+                    <div class="day">${nameDayAndMonth[0]}</div>
+                </div> 
+
+                <div class="forecast-content">
+                    <div class="degree">
+                        <div class="num">
+                            <p>${maxtemp}°C</p>
+                            <p>${mintemp}°C</p>
+                        </div>
+        
+                        <div class="forecast-icon">
+                            <img src="${forecastIconUrl}" alt="conditionIcon" width="90">
+                        </div>
+        
+                    </div>
+                    <div class="custom">${condition}</div>
+                </div>
+            </div>
+            `
+        forecastRow.appendChild(forecastDay);
+        //! end forecast data for two and three div
+    }
+
 })
 
 function formatDate(dateString) {
