@@ -78,7 +78,7 @@ submitbtn.addEventListener("click", async function () {
     forecastRow.innerHTML = "";
 
     var today = document.createElement("div");
-    today.classList.add("col-md-4", "p-0");
+    today.classList.add("col-md-4", "p-0", "align-items-stretch");
     today.innerHTML = 
     `
     <div class="today forecast">
@@ -90,20 +90,20 @@ submitbtn.addEventListener("click", async function () {
         <div class="forecast-content">
             <div class="location">${citName}</div>
             <div class="degree">
-                <div class="num">${currentTemp}°C</div>
+                <div  class="num" style="font-size: 90px; font-weight: 700;">${currentTemp}°C</div>
         
                 <div class="forecast-icon">
                     <img src="${iconUrl}" alt="conditionIcon" width="90">
                 </div>
         
             </div>
-            <div class="custom">${currentCondition}</div>
+            <div class="custom" style="color: var(--hover-color);">${currentCondition}</div>
         </div>
 
-        <footer>
-            <span><i class="fa-solid fa-umbrella"></i>20%</span>
-            <span><i class="fa-solid fa-wind"></i>${windSpeed}km/h</span>
-            <span><i class="fa-solid fa-compass"></i>${windDirction}</span>
+        <footer style="color: var(--second-text-color);" class="d-flex gap-5 p-2">
+            <p><i class="fa-solid fa-umbrella"></i>20%</p>
+            <p><i class="fa-solid fa-wind" style="margin-right: 5px; color:gray; font-size: 24px;"></i>${windSpeed}km/h</p>
+            <p><i class="fa-solid fa-compass" style="margin-right: 5px; color:gray; font-size: 24px;"></i>${windDirction}</p>
         </footer>
     </div>
     `
@@ -126,27 +126,26 @@ submitbtn.addEventListener("click", async function () {
             : forecastIcon;
 
         var forecastDay = document.createElement("div");
-        forecastDay.classList.add("col-md-4", "p-0");
+        forecastDay.classList.add("col-md-4", "p-0", "align-items-stretch");
         forecastDay.innerHTML =
             `
-            <div class="today forecast">
-                <div class="forecast-header d-flex justify-content-between">
-                    <div class="day">${nameDayAndMonth[0]}</div>
+            <div class="forecast h-100 m-0">
+                <div class="forecast-header d-flex justify-content-center">
+                    <div class="text-center">${nameDayAndMonth[0]}</div>
                 </div> 
 
-                <div class="forecast-content">
+                <div class="forecast-content h-100">
                     <div class="degree">
-                        <div class="num">
-                            <p>${maxtemp}°C</p>
-                            <p>${mintemp}°C</p>
-                        </div>
-        
-                        <div class="forecast-icon">
+                        <div class="forecast-icon d-flex justify-content-center align-items-center">
                             <img src="${forecastIconUrl}" alt="conditionIcon" width="90">
                         </div>
-        
+
+                        <div class="num text-center">
+                            <p class="m-0" style="font-size: 33px; font-weight: 700;">${maxtemp}°C</p>
+                            <p>${mintemp}°C</p>
+                        </div>
                     </div>
-                    <div class="custom">${condition}</div>
+                    <div class="text-center" style="color: var(--hover-color);">${condition}</div>
                 </div>
             </div>
             `
