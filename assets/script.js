@@ -102,8 +102,8 @@ submitbtn.addEventListener("click", async function () {
 
         <footer style="color: var(--second-text-color);" class="d-flex gap-5 p-2">
             <p><i class="fa-solid fa-umbrella"></i>20%</p>
-            <p><i class="fa-solid fa-wind" style="margin-right: 5px; color:gray; font-size: 24px;"></i>${windSpeed}km/h</p>
-            <p><i class="fa-solid fa-compass" style="margin-right: 5px; color:gray; font-size: 24px;"></i>${windDirction}</p>
+            <p><i class="fa-solid fa-wind"></i>${windSpeed}km/h</p>
+            <p><i class="fa-solid fa-compass"></i>${windDirction}</p>
         </footer>
     </div>
     `
