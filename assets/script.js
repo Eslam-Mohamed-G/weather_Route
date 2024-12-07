@@ -58,7 +58,7 @@ submitbtn.addEventListener("click", async function () {
     // var location = weatherData.location;
     // console.log(location);
     var citName = weatherData.location.name;
-    console.log(citName);
+    // console.log(citName);
     //! start current data for first div
     var current = weatherData.current;
     var currentDayAndMonth = formatDate(current.last_updated);
@@ -71,7 +71,7 @@ submitbtn.addEventListener("click", async function () {
     var iconUrl = conditionIcon.startsWith("//")
     ? `https:${conditionIcon}`
     : conditionIcon;
-    console.log(current);
+    // console.log(current);
     // current data for first div
     
     var forecastRow = document.getElementById("forecast");
@@ -119,7 +119,7 @@ submitbtn.addEventListener("click", async function () {
         var mintemp = forecastData[i].day.mintemp_c;
         var condition = forecastData[i].day.condition.text;
         var forecastIcon = forecastData[i].day.condition.icon;
-        console.log(nameDayAndMonth[0]);
+        // console.log(nameDayAndMonth[0]);
 
         var forecastIconUrl = forecastIcon.startsWith("//")
             ? `https:${forecastIcon}`
